@@ -90,7 +90,8 @@ def visualise(grid: np.ndarray, start_position: tuple,
 
 def get_neighbours(point: tuple, shape: tuple) -> list:
     """
-    Returns the coordinates (numpy array indices) neighbouring the given point.
+    Returns the coordinates (numpy array indices) of neighbours of 
+    the given point.
     """
     row, col = point
     shape_r, shape_c = shape
@@ -108,7 +109,7 @@ def manhattan(u: tuple, v: tuple) -> int:
 
 class Node:
     """
-    Class that stores the f,g and h values used by the A* algorithm
+    Class that stores the f, g and h values used by the A* algorithm
     for each point (node) in the grid along with the location in the grid
     and parent node.
     """
@@ -137,8 +138,7 @@ class Node:
 
     def draw(self, window, colour, grid_shape) -> None:
         """
-        Draws the square in the window corresponding to the node with the
-        specified colour.
+        Draws a coloured square in the window corresponding to the node.
         """
         # window shape
         window_width, window_height = pygame.display.get_surface().get_size()
@@ -168,9 +168,9 @@ class Node:
 def visual_astar(window: pygame.Surface, grid: np.ndarray,
                  start_position: tuple, end_position: tuple) -> int:
     """
-    Executes the A* algorithm to find the shortest path from the start and end
-    nodes. Draws the nodes on the window, colour coded depending on node type
-    and returns the shortest path length.
+    Executes the A* algorithm to find the shortest path between the start and 
+    end nodes. Draws the nodes on the window, colour coded depending on 
+    node type, and returns the shortest path length.
     """
     start_time = time()
     # grid shape
@@ -245,8 +245,8 @@ def visual_astar(window: pygame.Surface, grid: np.ndarray,
 
 def repeat_grid(grid: np.ndarray, repeat: int) -> np.ndarray:
     """
-    Returns the grid after repeating the grid the specified number of
-    times. 'Repeating' involes incrementing all values and resetting values
+    Returns the grid after repeating it the specified number of times.
+    'Repeating' involes incrementing all values and resetting values
     larger than 9 back to 1.
     Intended for use in conjunction with 'create_mega_grid()'.
     """
